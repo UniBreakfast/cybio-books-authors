@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- <script src="script.js" defer></script> -->
   <script src="app.js" type="module"></script>
@@ -16,11 +16,49 @@
 </head>
 
 <body id="body">
+  <header>
+    <nav>
+      <ul class="nav-bar">
+        <li>
+          <button><label for="authors-radio">Authors</label></button>
+        </li>
+        <li>
+          <button><label for="genres-radio">Genres</label></button>
+        </li>
+        <li>
+          <button><label for="books-radio">Books</label></button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
   <div id="screens">
     <div id="authors-scr">
       <input type="radio" name="screen" id="authors-radio" hidden checked>
       <h1>Authors</h1>
       <button id="add-author-btn">Add Author</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Authors</th>
+            <th>Number of books</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Joan Kathleen Rowling</td>
+            <td>7</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="del-btn">Remove</button>
+              <button class="view-btn">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div id="author-scr">

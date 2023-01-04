@@ -1,0 +1,26 @@
+button {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#screens > div:not(:has(>[name="screen"]:checked)) {
+  display: none;
+}
+
+dialog {
+  background-color: #fff;
+  margin: auto;
+}
+
+
+label {
+  display: block;
+}
+
+input {
+  border-bottom: 1px solid #000;
+}

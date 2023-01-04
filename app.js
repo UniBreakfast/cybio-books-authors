@@ -1,2 +1,5 @@
-import { authors } from './authors.js';
-import { books } from './books.js';
+import { authors } from './data/authors.js';
+import { books } from './data/books.js';
+import { prepUI } from './js/ui.js';
+
+prepUI();
