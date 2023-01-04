@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- <script src="script.js" defer></script> -->
+  <script src="app.js" type="module"></script>
+
+  <title>Books Authors</title>
+</head>
+
+<body id="body">
+  <div id="screens">
+    <div id="authors-scr">
+      <input type="radio" name="screen" id="authors-radio" hidden checked>
+      <h1>Authors</h1>
+      <button id="add-author-btn">Add Author</button>
+    </div>
+
+    <div id="author-scr">
+      <input type="radio" name="screen" id="author-radio" hidden>
+      <h1>Author</h1>
+      <button id="edit-author-btn">Edit Author</button>
+      <button id="delete-author-btn">Delete Author</button>
+    </div>
+
+    <div id="genges-scr">
+      <input type="radio" name="screen" id="genres-radio" hidden>
+      <h1>Genres</h1>
+    </div>
+
+    <div id="books-scr">
+      <input type="radio" name="screen" id="books-radio" hidden>
+      <h1>Books</h1>
+      <button id="add-book-btn">Add Book</button>
+    </div>
+
+    <div id="book-scr">
+      <input type="radio" name="screen" id="book-radio" hidden>
+      <h1>Book</h1>
+      <button id="edit-book-btn">Edit Book</button>
+      <button id="delete-book-btn">Delete Book</button>
+    </div>
+  </div>
+
+  <div id="modals">
+    <dialog id="add-author-modal">
+      <form action="javascript:" id="add-author-form">
+        <label>
+          First Name:
+          <input type="text" name="firstname" required>
+        </label>
+        <label>
+          Last Name:
+          <input type="text" name="lastname" required>
+        </label>
+        <label>
+          Middle Name:
+          <input type="text" name="middlename">
+        </label>
+        <label>
+          Date of Birth:
+          <input type="date" name="dob" required>
+        </label>
+        <button>Add Author</button>
+        <button type="button" class="cancel-btn">Cancel</button>
+      </form>
+    </dialog>
+  
+    <dialog id="add-book-modal">
+      <form action="javascript:" id="add-book-form">
+        <label>
+          Author:
+          <select name="author">
+            <option value="1">Joan Kathleen Rowling</option>
+            <option value="2">Stephen Edwin King</option>
+            <option value="3">Stephenie Meyer</option>
+            <option value="4">Isaac Asimov</option>
+            <option value="5">James Patterson</option>
+          </select>
+        </label>
+      
+        <label>
+          Title:
+          <input type="text" name="title" required>
+        </label>
+        <label>
+          Page Count:
+          <input type="number" name="pages" required>
+        </label>
+        <label>
+          Genre:
+          <select>
+            <option value="fantasy">Fantasy</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="thriller">Thriller</option>
+          </select>
+        </label>
+        <button>Add Book</button>
+        <button type="button" class="cancel-btn">Cancel</button>
+      </form>
+    </dialog>
+  </div>
+</body>
+
+</html>

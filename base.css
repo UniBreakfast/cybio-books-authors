@@ -1,0 +1,3 @@
+#screens > div:not(:has(>:checked)) {
+  display: none;
+}
