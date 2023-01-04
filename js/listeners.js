@@ -1,6 +1,6 @@
 export { assignListeners };
 
-import { addAuthorBtn, addAuthorModal, addAuthorForm, cancelButtons } from './elements.js';
+import { addAuthorBtn, addAuthorModal, addAuthorForm, cancelButtons, modals } from './elements.js';
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
 
@@ -17,6 +17,14 @@ function assignListeners() {
     button.addEventListener('click', () => {
       const modal = button.closest('dialog');
       modal.close();
+    });
+  });
+
+  modals.forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.close();
+      }
     });
   });
 }
