@@ -1,4 +1,4 @@
-export { renderAuthors };
+export { renderAuthors, formatName };
 
 import { authors } from '../data/authors.js';
 import { authorsTBody } from './elements.js';
