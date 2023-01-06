@@ -2,6 +2,7 @@ export const screens = document.getElementById('screens');
 export const addAuthorBtn = document.getElementById('add-author-btn');
 export const authorsTBody = document.getElementById('authors-tbody');
 export const authorContent = document.querySelector('#author-scr>.content');
+export const genresTBody = document.getElementById('genres-tbody');
 export const booksTBody = document.getElementById('books-tbody');
 export const screenRadios = document.querySelectorAll('[name="screen"]');
 export const modals = document.querySelectorAll('dialog');
