@@ -145,9 +145,9 @@ export const books = [
   },
   {
     id: 25,
-    title: 'The Graveyard Book',
-    pages: 304,
-    genre: 'Fantasy',
+    title: '',
+    pages: 0,
+    genre: '',
   },
   {
     id: 26,

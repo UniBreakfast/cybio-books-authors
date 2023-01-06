@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- <script src="script.js" defer></script> -->
   <script src="app.js" type="module"></script>
+  <script src="temp.js" type="module"></script>
 
   <title>Books Authors</title>
 </head>
@@ -63,9 +63,37 @@
 
     <div id="author-scr">
       <input type="radio" name="screen" id="author-radio" hidden>
-      <h1>Author</h1>
-      <button id="edit-author-btn">Edit Author</button>
-      <button id="delete-author-btn">Delete Author</button>
+      <div class="content">
+        <h1>Joan Kathleen Rowling</h1>
+        <h3>31 July 1965</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Books</th>
+              <th>Number of pages</th>
+              <th>Genres</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody id="author-books-tbody">
+            <tr>
+              <td>Harry Potter and the Philosopher's Stone</td>
+              <td>223</td>
+              <td>Fantasy</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="del-btn">Remove</button>
+                <button class="view-btn">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button id="edit-author-btn">Edit Author</button>
+        <button id="delete-author-btn">Delete Author</button>
+      </div>
     </div>
 
     <div id="genges-scr">
@@ -110,7 +138,7 @@
         <button type="button" class="cancel-btn">Cancel</button>
       </form>
     </dialog>
-  
+
     <dialog id="add-book-modal">
       <form action="javascript:" id="add-book-form">
         <label>
@@ -123,7 +151,7 @@
             <option value="5">James Patterson</option>
           </select>
         </label>
-      
+
         <label>
           Title:
           <input type="text" name="title" required>

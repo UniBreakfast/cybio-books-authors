@@ -5,7 +5,7 @@ export const authors = [
     lastname: 'Rowling',
     middlename: 'Kathleen',
     dob: '1965-07-31',
-    books: []
+    books: [1, 2, 3, 4, 5, 6, 7],
   },
   {
     id: 2,
@@ -13,7 +13,15 @@ export const authors = [
     lastname: 'Tolkien',
     middlename: 'Ronald Reuel',
     dob: '1892-01-03',
-    books: []
+    books: [8, 9, 10],
+  },
+  {
+    id: 3,
+    firstname: 'Patrick',
+    lastname: 'Rothfuss',
+    middlename: 'James',
+    dob: '1973-06-06',
+    books: [16, 17],
   },
   {
     id: 4,
@@ -21,7 +29,7 @@ export const authors = [
     lastname: 'Martin',
     middlename: 'Raymond Richard',
     dob: '1948-09-20',
-    books: []
+    books: [11, 12, 13, 14, 15],
   },
   {
     id: 5,
@@ -29,15 +37,15 @@ export const authors = [
     lastname: 'Sanderson',
     middlename: 'Dale',
     dob: '1975-12-19',
-    books: []
+    books: [],
   },
   {
     id: 6,
-    firstname: 'Patrick',
-    lastname: 'Rothfuss',
-    middlename: 'Rafael',
-    dob: '1973-06-06',
-    books: []
+    firstname: 'Terry',
+    lastname: 'Pratchett',
+    middlename: 'David John',
+    dob: '1948-04-28',
+    books: [21],
   },
   {
     id: 7,
@@ -45,7 +53,7 @@ export const authors = [
     lastname: 'Gaiman',
     middlename: 'Richard',
     dob: '1960-11-10',
-    books: [],
+    books: [18, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38],
   },
   {
     id: 8,

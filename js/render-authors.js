@@ -9,7 +9,7 @@ function renderAuthors() {
 
 function buildRow(author) {
   return `
-    <tr>
+    <tr data-id="${author.id}">
       <td>${formatName(author)}</td>
       <td>${author.books.length}</td>
       <td>

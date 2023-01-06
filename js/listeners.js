@@ -1,8 +1,16 @@
 export { assignListeners };
 
-import { addAuthorBtn, addAuthorModal, addAuthorForm, cancelButtons, modals } from './elements.js';
+import {
+  addAuthorBtn,
+  authorsTBody,
+  addAuthorModal,
+  addAuthorForm,
+  cancelButtons,
+  modals
+} from './elements.js';
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
+import { goTo } from './router.js';
 
 function assignListeners() {
   addAuthorForm.addEventListener('submit', () => {
@@ -20,9 +28,22 @@ function assignListeners() {
     });
   });
 
+  authorsTBody.addEventListener('click', e => {
+    if (e.target.matches('.del-btn')) {
+
+    }
+    else if (e.target.matches('.edit-btn')) {
+
+    }
+    else if (e.target.matches('.view-btn')) {
+      const authorId = e.target.closest('tr').dataset.id;
+      goTo('author', authorId)
+    }
+  });
+
   modals.forEach((modal) => {
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
         modal.close();
       }
     });
