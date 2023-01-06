@@ -25,9 +25,6 @@ function renderAuthor(id) {
 
       <tbody id="author-books-tbody">${renderAuthorBooks(id)}</tbody>
     </table>
-
-    <button class="edit-author-btn">Edit Author</button>
-    <button class="delete-author-btn">Delete Author</button>
   `
 }
 
