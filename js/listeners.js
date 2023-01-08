@@ -7,7 +7,9 @@ import {
   addAuthorForm,
   cancelButtons,
   modals,
-  booksTBody
+  booksTBody,
+  authorBooksTBody,
+  bookAuthorsTBody
 } from './elements.js';
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
@@ -29,7 +31,7 @@ function assignListeners() {
     });
   });
 
-  authorsTBody.addEventListener('click', e => {
+  authorsTBody.onclick = bookAuthorsTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
 
     }
@@ -40,9 +42,9 @@ function assignListeners() {
       const authorId = e.target.closest('tr').dataset.id;
       goTo('author', authorId)
     }
-  });
+  };
 
-  booksTBody.addEventListener('click', e => {
+  booksTBody.onclick = authorBooksTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
 
     }
@@ -53,7 +55,7 @@ function assignListeners() {
       const bookId = e.target.closest('tr').dataset.id;
       goTo('book', bookId)
     }
-  });
+  };
 
   modals.forEach((modal) => {
     modal.addEventListener('click', e => {
