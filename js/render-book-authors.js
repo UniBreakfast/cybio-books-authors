@@ -2,11 +2,16 @@ export { renderBookAuthors };
 
 import { authors } from '../data/authors.js';
 import { formatName } from './render-authors.js';
+import { bookAuthorsTBody } from './elements.js';
 
 function renderBookAuthors(id) {
   const bookAuthors = authors.filter(author => author.books.includes(+id));
 
-  return bookAuthors.map(author => `
+  bookAuthorsTBody.innerHTML = bookAuthors.map(buildRow).join('');
+}
+
+function buildRow(author) {
+  return `
     <tr data-id="${author.id}">
       <td>${formatName(author)}</td>
       <td>${author.books.length}</td>
@@ -16,6 +21,5 @@ function renderBookAuthors(id) {
         <button class="view-btn">Details</button>
       </td>
     </tr>
-  `).join('');
-  
+  `;
 }

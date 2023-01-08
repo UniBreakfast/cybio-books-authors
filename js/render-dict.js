@@ -16,20 +16,9 @@ function renderAuthor(id) {
   authorContent.innerHTML = `
     <h1>${format(author)}</h1>
     <h3>${author.dob}</h3>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Books</th>
-          <th>Number of pages</th>
-          <th>Genres</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody id="author-books-tbody">${renderAuthorBooks(id)}</tbody>
-    </table>
   `
+
+  renderAuthorBooks(id);
 }
 
 function renderBook(id) {
@@ -40,19 +29,9 @@ function renderBook(id) {
   bookContent.innerHTML = `
     <h1>${book.title} (${bookGenres.join(', ')})</h1>
     <h2>${bookAuthors.map(formatShort).join(', ')}</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Authors</th>
-          <th>Number of books</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody id="book-authors-tbody">${renderBookAuthors(id)}</tbody>
-    </table>
   `
+
+  renderBookAuthors(id);
 }
 
 function format(author) {

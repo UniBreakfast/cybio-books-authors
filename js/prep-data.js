@@ -6,15 +6,19 @@ import { genres } from '../data/genres.js';
 import { genId } from './gen-id.js';
 
 function prepData() {
-  for (const author of authors) {
-    author.id = genId();
+  for (const genre of genres) {
+    genre.id = idDict['g' + genre.id] = genId();
   }
 
   for (const book of books) {
-    book.id = genId();
+    book.genres = book.genres.map(genreId => idDict['g' + genreId]);
+    book.id = idDict['b' + book.id] = genId();
   }
 
-  for (const genre of genres) {
-    genre.id = genId();
+  for (const author of authors) {
+    author.books = author.books.map(bookId => idDict['b' + bookId]);
+    author.id = genId();
   }
 }
+
+const idDict = {};
