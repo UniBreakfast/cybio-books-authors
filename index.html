@@ -158,7 +158,35 @@
 
     <div id="book-scr">
       <input type="radio" name="screen" id="book-radio" hidden>
-      <h1>Book</h1>
+
+      <div class="content">
+        <h1>Harry Potter and the Philosopher's Stone</h1>
+        <h2>Joan Kathleen Rowling</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Authors</th>
+              <th>Number of books</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody id="book-authors-tbody">
+            <tr>
+              <td>Joan Kathleen Rowling</td>
+              <td>7</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="del-btn">Remove</button>
+                <button class="view-btn">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <button class="add-author-btn">Add Author</button>
       <button id="edit-book-btn">Edit Book</button>
       <button id="delete-book-btn">Delete Book</button>
     </div>
