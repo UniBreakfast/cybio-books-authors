@@ -5,11 +5,14 @@ import {
   authorsTBody,
   addAuthorModal,
   addAuthorForm,
+  authorBooksTBody,
+  addBookBtn,
+  booksTBody,
+  addBookModal,
+  addBookForm,
+  bookAuthorsTBody,
   cancelButtons,
   modals,
-  booksTBody,
-  authorBooksTBody,
-  bookAuthorsTBody
 } from './elements.js';
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
@@ -23,6 +26,8 @@ function assignListeners() {
   });
 
   addAuthorBtn.addEventListener('click', () => addAuthorModal.showModal());
+
+  addBookBtn.addEventListener('click', () => addBookModal.showModal());
 
   cancelButtons.forEach((button) => {
     button.addEventListener('click', () => {
