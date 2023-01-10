@@ -9,6 +9,12 @@ import {
   addBookBtn,
   booksTBody,
   addBookModal,
+  selectedAuthors,
+  selectedGenres,
+  authorSelect,
+  genreSelect,
+  selectAuthorBtn,
+  selectGenreBtn,
   bookAuthorsTBody,
   cancelButtons,
   modals,
@@ -18,6 +24,7 @@ import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
 import { goTo } from './router.js';
 import { prepAddBookForm } from './prep-add-book-form.js';
+import { selectAuthor, selectGenre, unselectAuthor, unselectGenre } from './select-book-form.js';
 
 function assignListeners() {
   addAuthorForm.addEventListener('submit', () => {
@@ -73,4 +80,19 @@ function assignListeners() {
       }
     });
   });
+
+  selectedAuthors.onclick = e => {
+    if (e.target.matches('.remove-author-btn')) {
+      unselectAuthor(e.target.closest('li').dataset.id);
+    }
+  };
+
+  selectedGenres.onclick = e => {
+    if (e.target.matches('.remove-genre-btn')) {
+      unselectGenre(e.target.closest('li').dataset.id);
+    }
+  };
+
+  selectAuthorBtn.addEventListener('click', () => selectAuthor(authorSelect.value));
+  selectGenreBtn.addEventListener('click', () => selectGenre(genreSelect.value));
 }

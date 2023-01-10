@@ -11,7 +11,11 @@ const booksTBody = document.getElementById('books-tbody');
 const bookContent = document.querySelector('#book-scr>.content');
 const addBookModal = document.getElementById('add-book-modal');
 const addBookForm = document.getElementById('add-book-form');
+const selectedAuthors = document.querySelector('.selected-authors');
+const selectedGenres = document.querySelector('.selected-genres');
 const [authorSelect, genreSelect] = [...addBookForm.querySelectorAll('select')];
+const selectAuthorBtn = addBookForm.querySelector('.add-author-btn');
+const selectGenreBtn = addBookForm.querySelector('.add-genre-btn');
 const bookAuthorsTBody = document.getElementById('book-authors-tbody');
 const screenRadios = document.querySelectorAll('[name="screen"]');
 const modals = document.querySelectorAll('dialog');
@@ -32,8 +36,12 @@ export {
   bookContent,
   addBookModal,
   addBookForm,
-  authorSelect, 
+  selectedAuthors,
+  selectedGenres,
+  authorSelect,
   genreSelect,
+  selectAuthorBtn,
+  selectGenreBtn,
   bookAuthorsTBody,
   screenRadios,
   modals,
