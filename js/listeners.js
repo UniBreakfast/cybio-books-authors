@@ -18,27 +18,46 @@ import {
   bookAuthorsTBody,
   cancelButtons,
   modals,
+  addBookForm,
 } from './elements.js';
 
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
+import { renderBooks } from './render-books.js';
+import { renderAuthorBooks } from './render-author-books.js';
+import { renderBookAuthors } from './render-book-authors.js';
 import { goTo } from './router.js';
 import { prepAddBookForm } from './prep-add-book-form.js';
 import { selectAuthor, selectGenre, unselectAuthor, unselectGenre } from './select-book-form.js';
+import { addBook } from './add-book.js';
 
 function assignListeners() {
-  addAuthorForm.addEventListener('submit', () => {
+  addAuthorForm.onsubmit = () => {
     addAuthor(Object.fromEntries(new FormData(addAuthorForm)));
     renderAuthors();
     addAuthorModal.close();
-  });
+  };
 
-  addAuthorBtn.addEventListener('click', () => addAuthorModal.showModal());
+  addBookForm.onsubmit = () => {
+    const book = Object.fromEntries(new FormData(addBookForm));
+    const authorIds = [...selectedAuthors.children].map(author => +author.dataset.id);
 
-  addBookBtn.addEventListener('click', () => {
+    book.genres = [...selectedGenres.children].map(genre => +genre.dataset.id);
+    addBook(book, authorIds);
+
+    renderAuthors();
+    renderBooks();
+    // renderAuthorBooks();
+
+    addBookModal.close();
+  };
+
+  addAuthorBtn.onclick = () => addAuthorModal.showModal();
+
+  addBookBtn.onclick = () => {
     prepAddBookForm();
     addBookModal.showModal();
-  });
+  };
 
   cancelButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -93,6 +112,6 @@ function assignListeners() {
     }
   };
 
-  selectAuthorBtn.addEventListener('click', () => selectAuthor(authorSelect.value));
-  selectGenreBtn.addEventListener('click', () => selectGenre(genreSelect.value));
+  selectAuthorBtn.onclick = () => selectAuthor(authorSelect.value);
+  selectGenreBtn.onclick = () => selectGenre(genreSelect.value);
 }
