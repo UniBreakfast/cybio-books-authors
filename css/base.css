@@ -10,6 +10,12 @@ button {
   display: none;
 }
 
+#body:has(#authors-radio:checked) li:has([for="authors-radio"]),
+#body:has(#genres-radio:checked) li:has([for="genres-radio"]),
+#body:has(#books-radio:checked) li:has([for="books-radio"]) {
+  display: none;
+}
+
 dialog {
   background-color: #fff;
   margin: auto;
