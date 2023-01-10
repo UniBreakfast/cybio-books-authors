@@ -9,12 +9,13 @@ import { genres } from '../data/genres.js';
 import { authorContent, bookContent } from './elements.js';
 import { renderAuthorBooks } from './render-author-books.js';
 import { renderBookAuthors } from './render-book-authors.js';
+import { formatFullName, formatShortName } from './format.js';
 
 function renderAuthor(id) {
   const author = authors.find(author => author.id == id);
 
   authorContent.innerHTML = `
-    <h1>${format(author)}</h1>
+    <h1>${formatFullName(author)}</h1>
     <h3>${author.dob}</h3>
   `
 
@@ -28,16 +29,8 @@ function renderBook(id) {
 
   bookContent.innerHTML = `
     <h1>${book.title} (${bookGenres.join(', ')})</h1>
-    <h2>${bookAuthors.map(formatShort).join(', ')}</h2>
+    <h2>${bookAuthors.map(formatShortName).join(', ')}</h2>
   `
 
   renderBookAuthors(id);
-}
-
-function format(author) {
-  return `${author.firstname} ${author.middlename} ${author.lastname}`;
-}
-
-function formatShort(author) {
-  return `${author.firstname} ${author.lastname}`;
 }

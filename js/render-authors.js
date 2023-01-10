@@ -1,7 +1,8 @@
-export { renderAuthors, formatName };
+export { renderAuthors, formatNameInitials as formatName };
 
 import { authors } from '../data/authors.js';
 import { authorsTBody } from './elements.js';
+import { formatNameInitials } from './format.js';
 
 function renderAuthors() {
   authorsTBody.innerHTML = authors.map(buildRow).join('');
@@ -10,7 +11,7 @@ function renderAuthors() {
 function buildRow(author) {
   return `
     <tr data-id="${author.id}">
-      <td>${formatName(author)}</td>
+      <td>${formatNameInitials(author)}</td>
       <td>${author.books.length}</td>
       <td>
         <button class="edit-btn">Edit</button>
@@ -19,8 +20,4 @@ function buildRow(author) {
       </td>
     </tr>
   `;
-}
-
-function formatName(author) {
-  return `${author.lastname} ${author.firstname[0]}. ${author.middlename[0]}.`;
 }

@@ -1,7 +1,7 @@
 export { renderBookAuthors };
 
 import { authors } from '../data/authors.js';
-import { formatName } from './render-authors.js';
+import { formatNameInitials } from './format.js';
 import { bookAuthorsTBody } from './elements.js';
 
 function renderBookAuthors(id) {
@@ -13,7 +13,7 @@ function renderBookAuthors(id) {
 function buildRow(author) {
   return `
     <tr data-id="${author.id}">
-      <td>${formatName(author)}</td>
+      <td>${formatNameInitials(author)}</td>
       <td>${author.books.length}</td>
       <td>
         <button class="edit-btn">Edit</button>

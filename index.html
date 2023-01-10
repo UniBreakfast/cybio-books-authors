@@ -217,6 +217,16 @@
 
     <dialog id="add-book-modal">
       <form action="javascript:" id="add-book-form">
+        <ul class="selected-authors">
+          <li>
+            <span>Joan Kathleen Rowling</span>
+            <button type="button" class="remove-author-btn">&times;</button>
+          </li>
+          <li>
+            <span>Stephen Edwin King</span>
+            <button type="button" class="remove-author-btn">&times;</button>
+          </li>
+        </ul>
         <label>
           Author:
           <select name="author">
@@ -226,6 +236,7 @@
             <option value="4">Isaac Asimov</option>
             <option value="5">James Patterson</option>
           </select>
+          <button type="button" class="add-author-btn">add</button>
         </label>
 
         <label>
@@ -236,6 +247,18 @@
           Page Count:
           <input type="number" name="pages" required>
         </label>
+
+        <ul class="selected-genres">
+          <li>
+            <span>Fantasy</span>
+            <button type="button" class="remove-genre-btn">&times;</button>
+          </li>
+          <li>
+            <span>Horror</span>
+            <button type="button" class="remove-genre-btn">&times;</button>
+          </li>
+        </ul>
+
         <label>
           Genre:
           <select>
@@ -245,7 +268,9 @@
             <option value="sci-fi">Sci-Fi</option>
             <option value="thriller">Thriller</option>
           </select>
+          <button type="button" class="add-genre-btn">add</button>
         </label>
+        
         <button>Add Book</button>
         <button type="button" class="cancel-btn">Cancel</button>
       </form>

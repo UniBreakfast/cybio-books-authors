@@ -9,14 +9,15 @@ import {
   addBookBtn,
   booksTBody,
   addBookModal,
-  addBookForm,
   bookAuthorsTBody,
   cancelButtons,
   modals,
 } from './elements.js';
+
 import { addAuthor } from './add-author.js';
 import { renderAuthors } from './render-authors.js';
 import { goTo } from './router.js';
+import { prepAddBookForm } from './prep-add-book-form.js';
 
 function assignListeners() {
   addAuthorForm.addEventListener('submit', () => {
@@ -27,7 +28,10 @@ function assignListeners() {
 
   addAuthorBtn.addEventListener('click', () => addAuthorModal.showModal());
 
-  addBookBtn.addEventListener('click', () => addBookModal.showModal());
+  addBookBtn.addEventListener('click', () => {
+    prepAddBookForm();
+    addBookModal.showModal();
+  });
 
   cancelButtons.forEach((button) => {
     button.addEventListener('click', () => {

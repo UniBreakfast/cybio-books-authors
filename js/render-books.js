@@ -4,14 +4,14 @@ import { authors } from '../data/authors.js';
 import { books } from '../data/books.js';
 import { genres } from '../data/genres.js';
 import { booksTBody } from './elements.js';
-import { formatName } from './render-authors.js';
+import { formatNameInitials } from './format.js';
 
 function renderBooks() {
   booksTBody.innerHTML = books.map(buildRow).join('');
 }
 
 function buildRow(book) {
-  const authorNames = authors.filter(author => author.books.includes(book.id)).map(formatName);
+  const authorNames = authors.filter(author => author.books.includes(book.id)).map(formatNameInitials);
   const genreNames = genres.filter(genre => book.genres.includes(genre.id)).map(genre => genre.name);
 
   return `
