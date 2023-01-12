@@ -144,12 +144,6 @@ export const books = [
     genres: [1],
   },
   {
-    id: 25,
-    title: '',
-    pages: 0,
-    genres: [],
-  },
-  {
     id: 26,
     title: 'The Sandman',
     pages: 304,

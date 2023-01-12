@@ -22,6 +22,7 @@ import {
 } from './elements.js';
 
 import { addAuthor } from './add-author.js';
+import { removeAuthor } from './remove-author.js';
 import { renderAuthors } from './render-authors.js';
 import { renderBooks } from './render-books.js';
 import { renderAuthorBooks } from './render-author-books.js';
@@ -68,13 +69,15 @@ function assignListeners() {
 
   authorsTBody.onclick = bookAuthorsTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
-
+      removeAuthor(+e.target.closest('tr').dataset.id);
+      renderAuthors();
+      renderBooks();
     }
     else if (e.target.matches('.edit-btn')) {
 
     }
     else if (e.target.matches('.view-btn')) {
-      const authorId = e.target.closest('tr').dataset.id;
+      const authorId = +e.target.closest('tr').dataset.id;
       goTo('author', authorId)
     }
   };
@@ -102,16 +105,16 @@ function assignListeners() {
 
   selectedAuthors.onclick = e => {
     if (e.target.matches('.remove-author-btn')) {
-      unselectAuthor(e.target.closest('li').dataset.id);
+      unselectAuthor(+e.target.closest('li').dataset.id);
     }
   };
 
   selectedGenres.onclick = e => {
     if (e.target.matches('.remove-genre-btn')) {
-      unselectGenre(e.target.closest('li').dataset.id);
+      unselectGenre(+e.target.closest('li').dataset.id);
     }
   };
 
-  selectAuthorBtn.onclick = () => selectAuthor(authorSelect.value);
-  selectGenreBtn.onclick = () => selectGenre(genreSelect.value);
+  selectAuthorBtn.onclick = () => selectAuthor(+authorSelect.value);
+  selectGenreBtn.onclick = () => selectGenre(+genreSelect.value);
 }

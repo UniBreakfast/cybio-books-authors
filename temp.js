@@ -6,7 +6,7 @@ import { goTo } from "./js/router.js";
 // goTo('author', 1);
 fillForms();
 prepAddBookForm();
-addBookModal.showModal();
+// addBookModal.showModal();
 
 function fillForms() {
   addAuthorForm.firstname.value = 'John';

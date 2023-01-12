@@ -24,7 +24,7 @@ function renderAuthor(id) {
 
 function renderBook(id) {
   const book = books.find(book => book.id == id);
-  const bookAuthors = authors.filter(author => author.books.includes(+id));
+  const bookAuthors = authors.filter(author => author.books.includes(id));
   const bookGenres = genres.filter(genre => book.genres.includes(genre.id)).map(genre => genre.name);
 
   bookContent.innerHTML = `
