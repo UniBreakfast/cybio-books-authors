@@ -6,7 +6,7 @@ import { genres } from '../data/genres.js';
 import { authorBooksTBody, authorContent } from './elements.js';
 import { goTo } from './router.js';
 
-function renderAuthorBooks(id = +authorContent.parentElement.dataset.id) {
+function renderAuthorBooks(id = +authorContent.dataset.id) {
   const author = authors.find(author => author.id == id);
 
   if (!author) {

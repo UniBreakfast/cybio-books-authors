@@ -5,7 +5,7 @@ import { formatNameInitials } from './format.js';
 import { bookAuthorsTBody, bookContent } from './elements.js';
 import { goTo } from './router.js';
 
-function renderBookAuthors(id=+bookContent.parentElement.dataset.id) {
+function renderBookAuthors(id=+bookContent.dataset.id) {
   const bookAuthors = authors.filter(author => author.books.includes(id));
 
   if (!bookAuthors.length) {
