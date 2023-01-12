@@ -1,6 +1,7 @@
 export { assignListeners };
 
 import {
+  searchForm,
   addAuthorBtn,
   authorsTBody,
   addAuthorModal,
@@ -35,6 +36,16 @@ import { addBook } from './add-book.js';
 import { removeBook } from './remove-book.js';
 
 function assignListeners() {
+  searchForm.oninput = e => searchForm[e.target.name == 'book' ? 'author' : 'book'].value = '';
+
+  searchForm.onsubmit = () => {
+    const type = searchForm.book.value ? 'book' : 'author';
+    const query = searchForm[type].value;
+
+    // search(type, query);
+  }
+
+
   addAuthorForm.onsubmit = () => {
     addAuthor(Object.fromEntries(new FormData(addAuthorForm)));
     rerenderData();

@@ -1,4 +1,5 @@
 const screens = document.getElementById('screens');
+const searchForm = document.getElementById('search-form');
 const addAuthorBtn = document.getElementById('add-author-btn');
 const authorsTBody = document.getElementById('authors-tbody');
 const authorContent = document.querySelector('#author-scr>.content');
@@ -28,6 +29,7 @@ const screenDict = Object.fromEntries([...screenRadios].map(radio => [radio.id.s
 
 export {
   screens,
+  searchForm,
   addAuthorBtn,
   authorsTBody,
   authorContent,
