@@ -26,8 +26,10 @@ import {
   selectGenreBtn,
   cancelButtons,
   modals,
+  genresTBody,
 } from './elements.js';
 
+import { genres } from '../data/genres.js';
 import { addAuthor } from './add-author.js';
 import { removeAuthor } from './remove-author.js';
 import { search } from './search.js';
@@ -106,6 +108,18 @@ function assignListeners() {
   delAuthorBtn.onclick = () => {
     removeAuthor(+authorContent.dataset.id);
     rerenderData();
+  };
+
+  genresTBody.onclick = e => {
+    if (e.target.matches('.view-btn')) {
+      const genreId = e.target.closest('tr').dataset.id;
+      const genre = genres.find(genre => genre.id == genreId);
+
+      const items = search('genre', genre.name);
+
+      renderFound('book', items);
+      goTo('books');
+    }
   };
 
   booksTBody.onclick = authorBooksTBody.onclick = e => {

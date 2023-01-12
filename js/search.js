@@ -2,6 +2,7 @@ export { search };
 
 import { authors } from '../data/authors.js';
 import { books } from '../data/books.js';
+import { genres } from '../data/genres.js';
 import { formatFullName } from './format.js';
 
 function search(type, query) {
@@ -20,4 +21,10 @@ function search(type, query) {
       return parts.every(part => fullName.includes(part));
     });
   }
+
+  if (type == 'genre') {
+    const genreId = genres.find(genre => genre.name.toLowerCase() == query).id;
+
+    return books.filter(book => book.genres.some(id => id == genreId));
+  } 
 }

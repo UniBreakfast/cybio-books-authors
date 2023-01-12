@@ -12,6 +12,10 @@ input {
   gap: 30px;
 }
 
+td {
+  text-align: center;
+}
+
 form {
   text-align: center;
 }
