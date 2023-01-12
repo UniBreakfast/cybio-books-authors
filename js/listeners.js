@@ -28,6 +28,8 @@ import {
 
 import { addAuthor } from './add-author.js';
 import { removeAuthor } from './remove-author.js';
+import { search } from './search.js';
+import { renderFound } from './render-found.js';
 import { rerenderData } from './rerender-data.js';
 import { goTo } from './router.js';
 import { prepAddBookForm } from './prep-add-book-form.js';
@@ -42,9 +44,11 @@ function assignListeners() {
     const type = searchForm.book.value ? 'book' : 'author';
     const query = searchForm[type].value;
 
-    // search(type, query);
-  }
+    const items = search(type, query);
 
+    renderFound(type, items);
+    goTo(type + 's');
+  }
 
   addAuthorForm.onsubmit = () => {
     addAuthor(Object.fromEntries(new FormData(addAuthorForm)));
