@@ -1,30 +1,31 @@
-const screens = document.getElementById('screens');
-const searchForm = document.getElementById('search-form');
-const addAuthorBtn = document.getElementById('add-author-btn');
-const authorsTBody = document.getElementById('authors-tbody');
-const authorContent = document.querySelector('#author-scr>.content');
-const addAuthorModal = document.getElementById('add-author-modal');
-const addAuthorForm = document.getElementById('add-author-form');
-const authorBooksTBody = document.getElementById('author-books-tbody');
-const delAuthorBtn = document.getElementById('delete-author-btn');
+const screens = getById('screens');
+const searchForm = getById('search-form');
+const addAuthorBtn = getById('add-author-btn');
+const authorsTBody = getById('authors-tbody');
+const [authorContent] = getAllBy('#author-scr>.content');
+const addAuthorModal = getById('add-author-modal');
+const addAuthorForm = getById('add-author-form');
+const addAuthorBookBtn = getByClass('add-book-btn');
+const authorBooksTBody = getById('author-books-tbody');
+const delAuthorBtn = getById('delete-author-btn');
 
-const genresTBody = document.getElementById('genres-tbody');
-const addBookBtn = document.getElementById('add-book-btn');
-const booksTBody = document.getElementById('books-tbody');
-const bookContent = document.querySelector('#book-scr>.content');
-const addBookModal = document.getElementById('add-book-modal');
-const addBookForm = document.getElementById('add-book-form');
-const bookAuthorsTBody = document.getElementById('book-authors-tbody');
-const delBookBtn = document.getElementById('delete-book-btn');
-const selectedAuthors = document.querySelector('.selected-authors');
-const selectedGenres = document.querySelector('.selected-genres');
-const [authorSelect, genreSelect] = [...addBookForm.querySelectorAll('select')];
-const selectAuthorBtn = addBookForm.querySelector('.add-author-btn');
-const selectGenreBtn = addBookForm.querySelector('.add-genre-btn');
+const genresTBody = getById('genres-tbody');
+const addBookBtn = getById('add-book-btn');
+const booksTBody = getById('books-tbody');
+const [bookContent] = getAllBy('#book-scr>.content');
+const addBookModal = getById('add-book-modal');
+const addBookForm = getById('add-book-form');
+const bookAuthorsTBody = getById('book-authors-tbody');
+const delBookBtn = getById('delete-book-btn');
+const selectedAuthors = getByClass('selected-authors');
+const selectedGenres = getByClass('selected-genres');
+const [authorSelect, genreSelect] = [...getAllBy('select', addBookForm)];
+const selectAuthorBtn = getByClass('add-author-btn', addBookForm);
+const selectGenreBtn = getByClass('add-genre-btn', addBookForm);
 
-const screenRadios = document.querySelectorAll('[name="screen"]');
-const modals = document.querySelectorAll('dialog');
-const cancelButtons = document.querySelectorAll('.cancel-btn');
+const screenRadios = getAllBy('[name="screen"]');
+const modals = getAllBy('dialog');
+const cancelButtons = getAllBy('.cancel-btn');
 const screenDict = Object.fromEntries([...screenRadios].map(radio => [radio.id.split('-')[0], radio]));
 
 export {
@@ -36,6 +37,7 @@ export {
   addAuthorModal,
   addAuthorForm,
   authorBooksTBody,
+  addAuthorBookBtn,
   delAuthorBtn,
 
   genresTBody,
@@ -57,4 +59,16 @@ export {
   modals,
   cancelButtons,
   screenDict,
+}
+
+function getById(id) {
+  return document.getElementById(id);
+}
+
+function getByClass(className, parent) {
+  return (parent || document).querySelector('.'+className);
+}
+
+function getAllBy(selector, parent) {
+  return (parent || document).querySelectorAll(selector);
 }

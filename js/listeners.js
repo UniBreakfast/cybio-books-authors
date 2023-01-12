@@ -8,6 +8,7 @@ import {
   addAuthorForm,
   authorContent,
   authorBooksTBody,
+  addAuthorBookBtn,
   delAuthorBtn,
   addBookBtn,
   booksTBody,
@@ -92,6 +93,13 @@ function assignListeners() {
       const authorId = +e.target.closest('tr').dataset.id;
       goTo('author', authorId)
     }
+  };
+
+  addAuthorBookBtn.onclick = () => {
+    const authorId = +authorContent.dataset.id;
+    
+    prepAddBookForm(authorId);
+    addBookModal.showModal();
   };
 
   delAuthorBtn.onclick = () => {

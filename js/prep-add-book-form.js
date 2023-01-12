@@ -4,12 +4,15 @@ import { authorSelect, genreSelect, selectedAuthors, selectedGenres } from "./el
 import { authors } from "../data/authors.js";
 import { genres } from "../data/genres.js";
 import { formatShortName } from "./format.js";
+import { selectAuthor } from "./select-book-form.js";
 
-function prepAddBookForm() {
+function prepAddBookForm(authorId) {
   selectedAuthors.innerHTML = "";
   selectedGenres.innerHTML = "";
   authorSelect.innerHTML = authors.map(buildAuthorOption).join("");
   genreSelect.innerHTML = genres.map(buildGenreOption).join("");
+
+  if (authorId) selectAuthor(authorId);
 }
 
 function buildAuthorOption(author) {
