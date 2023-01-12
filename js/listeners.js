@@ -31,6 +31,7 @@ import { goTo } from './router.js';
 import { prepAddBookForm } from './prep-add-book-form.js';
 import { selectAuthor, selectGenre, unselectAuthor, unselectGenre } from './select-book-form.js';
 import { addBook } from './add-book.js';
+import { removeBook } from './remove-book.js';
 
 function assignListeners() {
   addAuthorForm.onsubmit = () => {
@@ -84,7 +85,9 @@ function assignListeners() {
 
   booksTBody.onclick = authorBooksTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
-
+      removeBook(+e.target.closest('tr').dataset.id);
+      renderAuthors();
+      renderBooks();
     }
     else if (e.target.matches('.edit-btn')) {
 
