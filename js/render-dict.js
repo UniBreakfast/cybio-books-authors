@@ -14,6 +14,8 @@ import { formatFullName, formatShortName } from './format.js';
 function renderAuthor(id) {
   const author = authors.find(author => author.id == id);
 
+  authorContent.parentElement.dataset.id = id;
+  
   authorContent.innerHTML = `
     <h1>${formatFullName(author)}</h1>
     <h3>${author.dob}</h3>
@@ -26,6 +28,8 @@ function renderBook(id) {
   const book = books.find(book => book.id == id);
   const bookAuthors = authors.filter(author => author.books.includes(id));
   const bookGenres = genres.filter(genre => book.genres.includes(genre.id)).map(genre => genre.name);
+
+  bookContent.parentElement.dataset.id = id;
 
   bookContent.innerHTML = `
     <h1>${book.title} (${bookGenres.join(', ')})</h1>

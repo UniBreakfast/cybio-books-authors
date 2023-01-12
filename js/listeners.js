@@ -23,10 +23,7 @@ import {
 
 import { addAuthor } from './add-author.js';
 import { removeAuthor } from './remove-author.js';
-import { renderAuthors } from './render-authors.js';
-import { renderBooks } from './render-books.js';
-import { renderAuthorBooks } from './render-author-books.js';
-import { renderBookAuthors } from './render-book-authors.js';
+import { rerenderData } from './rerender-data.js';
 import { goTo } from './router.js';
 import { prepAddBookForm } from './prep-add-book-form.js';
 import { selectAuthor, selectGenre, unselectAuthor, unselectGenre } from './select-book-form.js';
@@ -36,7 +33,7 @@ import { removeBook } from './remove-book.js';
 function assignListeners() {
   addAuthorForm.onsubmit = () => {
     addAuthor(Object.fromEntries(new FormData(addAuthorForm)));
-    renderAuthors();
+    rerenderData();
     addAuthorModal.close();
   };
 
@@ -46,11 +43,7 @@ function assignListeners() {
 
     book.genres = [...selectedGenres.children].map(genre => +genre.dataset.id);
     addBook(book, authorIds);
-
-    renderAuthors();
-    renderBooks();
-    // renderAuthorBooks();
-
+    rerenderData();
     addBookModal.close();
   };
 
@@ -71,8 +64,7 @@ function assignListeners() {
   authorsTBody.onclick = bookAuthorsTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
       removeAuthor(+e.target.closest('tr').dataset.id);
-      renderAuthors();
-      renderBooks();
+      rerenderData();
     }
     else if (e.target.matches('.edit-btn')) {
 
@@ -86,14 +78,13 @@ function assignListeners() {
   booksTBody.onclick = authorBooksTBody.onclick = e => {
     if (e.target.matches('.del-btn')) {
       removeBook(+e.target.closest('tr').dataset.id);
-      renderAuthors();
-      renderBooks();
+      rerenderData();
     }
     else if (e.target.matches('.edit-btn')) {
 
     }
     else if (e.target.matches('.view-btn')) {
-      const bookId = e.target.closest('tr').dataset.id;
+      const bookId = +e.target.closest('tr').dataset.id;
       goTo('book', bookId)
     }
   };

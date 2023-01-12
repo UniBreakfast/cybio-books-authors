@@ -2,10 +2,16 @@ export { renderBookAuthors };
 
 import { authors } from '../data/authors.js';
 import { formatNameInitials } from './format.js';
-import { bookAuthorsTBody } from './elements.js';
+import { bookAuthorsTBody, bookContent } from './elements.js';
+import { goTo } from './router.js';
 
-function renderBookAuthors(id) {
-  const bookAuthors = authors.filter(author => author.books.includes(+id));
+function renderBookAuthors(id=+bookContent.parentElement.dataset.id) {
+  const bookAuthors = authors.filter(author => author.books.includes(id));
+
+  if (!bookAuthors.length) {
+    if (goTo.current == 'book') goTo('books');
+    return;
+  }
 
   bookAuthorsTBody.innerHTML = bookAuthors.map(buildRow).join('');
 }

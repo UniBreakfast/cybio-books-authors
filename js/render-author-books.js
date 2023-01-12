@@ -3,12 +3,18 @@ export { renderAuthorBooks };
 import { authors } from '../data/authors.js';
 import { books } from '../data/books.js';
 import { genres } from '../data/genres.js';
-import { authorBooksTBody } from './elements.js';
+import { authorBooksTBody, authorContent } from './elements.js';
+import { goTo } from './router.js';
 
-function renderAuthorBooks(id) {
+function renderAuthorBooks(id = +authorContent.parentElement.dataset.id) {
   const author = authors.find(author => author.id == id);
+
+  if (!author) {
+    if (goTo.current == 'author') goTo('authors');
+    return;
+  }
   const authorBooks = books.filter(book => author.books.includes(book.id))
-  
+
   authorBooksTBody.innerHTML = authorBooks.map(buildRow).join('');
 }
 
