@@ -15,6 +15,7 @@ const booksTBody = getById('books-tbody');
 const [bookContent] = getAllBy('#book-scr>.content');
 const addBookModal = getById('add-book-modal');
 const addBookForm = getById('add-book-form');
+const addBookAuthorBtn = getByClass('add-author-btn');
 const bookAuthorsTBody = getById('book-authors-tbody');
 const delBookBtn = getById('delete-book-btn');
 const selectedAuthors = getByClass('selected-authors');
@@ -46,6 +47,7 @@ export {
   bookContent,
   addBookModal,
   addBookForm,
+  addBookAuthorBtn,
   bookAuthorsTBody,
   delBookBtn,
   selectedAuthors,

@@ -16,6 +16,7 @@ import {
   addBookForm,
   bookContent,
   bookAuthorsTBody,
+  addBookAuthorBtn,
   delBookBtn,
   selectedAuthors,
   selectedGenres,
@@ -97,7 +98,7 @@ function assignListeners() {
 
   addAuthorBookBtn.onclick = () => {
     const authorId = +authorContent.dataset.id;
-    
+
     prepAddBookForm(authorId);
     addBookModal.showModal();
   };
@@ -119,6 +120,12 @@ function assignListeners() {
       const bookId = +e.target.closest('tr').dataset.id;
       goTo('book', bookId)
     }
+  };
+
+  addBookAuthorBtn.onclick = () => {
+    const bookId = +bookContent.dataset.id;
+
+    // new modal/form needed
   };
 
   delBookBtn.onclick = () => {
